@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "c41567d0-c3e8-4a66-a46a-35bc0e9083fc",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET TEAMS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://alphafx-code-test-api.herokuapp.com/api/teams/players?team_id=3097fe71-57da-4c84-8efd-33bb9bae9d21&name=Benfica&city=Lisboa&logo_url=https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/220px-SL_Benfica_logo.svg.png&founded=1904&colour=ef2c20&budget=24750000",
+					"protocol": "https",
+					"host": [
+						"alphafx-code-test-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"teams",
+						"players"
+					],
+					"query": [
+						{
+							"key": "team_id",
+							"value": "3097fe71-57da-4c84-8efd-33bb9bae9d21"
+						},
+						{
+							"key": "name",
+							"value": "Benfica"
+						},
+						{
+							"key": "city",
+							"value": "Lisboa"
+						},
+						{
+							"key": "logo_url",
+							"value": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/220px-SL_Benfica_logo.svg.png"
+						},
+						{
+							"key": "founded",
+							"value": "1904"
+						},
+						{
+							"key": "colour",
+							"value": "ef2c20"
+						},
+						{
+							"key": "budget",
+							"value": "24750000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD GAME",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://alphafx-code-test-api.herokuapp.com/api/teams/games/new?team_one_id=2018-08-04T07:41:55.172Z&team_one_goals=59d6e27e-685c-48a3-8d31-c546efcda0f0&team_two_goals=2&date=4",
+					"protocol": "https",
+					"host": [
+						"alphafx-code-test-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"teams",
+						"games",
+						"new"
+					],
+					"query": [
+						{
+							"key": "team_one_id",
+							"value": "2018-08-04T07:41:55.172Z"
+						},
+						{
+							"key": "team_one_goals",
+							"value": "59d6e27e-685c-48a3-8d31-c546efcda0f0"
+						},
+						{
+							"key": "team_two_goals",
+							"value": "2"
+						},
+						{
+							"key": "date",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PLAYERS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://alphafx-code-test-api.herokuapp.com/api/teams/players?team_id=3097fe71-57da-4c84-8efd-33bb9bae9d21&name=Rex Berry&age=33&nationality\t=England&position=FW",
+					"protocol": "https",
+					"host": [
+						"alphafx-code-test-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"teams",
+						"players"
+					],
+					"query": [
+						{
+							"key": "team_id",
+							"value": "3097fe71-57da-4c84-8efd-33bb9bae9d21"
+						},
+						{
+							"key": "name",
+							"value": "Rex Berry"
+						},
+						{
+							"key": "age",
+							"value": "33"
+						},
+						{
+							"key": "nationality\t",
+							"value": "England"
+						},
+						{
+							"key": "position",
+							"value": "FW"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET GAMSES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://alphafx-code-test-api.herokuapp.com/api/teams/games?Content-Type=application/json&date\t=2018-08-04T07:41:55.172Z&team_one_id=3097fe71-57da-4c84-8efd-33bb9bae9d21\n&team_one_goals=0&team_two_goals=0",
+					"protocol": "https",
+					"host": [
+						"alphafx-code-test-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"teams",
+						"games"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "date\t",
+							"value": "2018-08-04T07:41:55.172Z"
+						},
+						{
+							"key": "team_one_id",
+							"value": "3097fe71-57da-4c84-8efd-33bb9bae9d21\n"
+						},
+						{
+							"key": "team_one_goals",
+							"value": "0"
+						},
+						{
+							"key": "team_two_goals",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
