@@ -8,7 +8,7 @@ interface Item {
     "budget": number
 }
 
-interface APi {
+export interface GamesAPI {
     "success": true,
     "data": Array<Item>
 }

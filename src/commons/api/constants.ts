@@ -1,1 +1,1 @@
-export const entryPoint =  'https://alphafx-code-test-api.herokuapp.com/api/';
+export const url =  'https://alphafx-code-test-api.herokuapp.com/api/';
