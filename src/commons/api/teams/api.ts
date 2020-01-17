@@ -1,10 +1,12 @@
 import {url} from '../constants';
 import {GamesAPI} from "./types";
 
-const entryPoint = 'teams/games';
+const entryPoint = 'teams';
+
 
 const headers = {};
 const body = {};
+
 
 export const request = async (): Promise<GamesAPI | undefined> => {
     try {

@@ -1,14 +1,12 @@
-interface Item {
+export interface Item {
     "id": string,
-    "name": string,
-    "city": string,
-    "logo_url": string,
-    "founded": number,
-    "colour": string,
-    "budget": number
+    "date": Date,
+    "team_one_id": string,
+    "team_one_goals": number,
+    "team_two_goals": number
 }
 
 export interface GamesAPI {
-    "success": true,
-    "data": Array<Item>
+    success: true,
+    data: Array<Item>
 }

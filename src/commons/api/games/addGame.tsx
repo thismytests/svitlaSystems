@@ -1,13 +1,32 @@
 import {url} from '../constants';
-import {GamesAPI} from "./types";
+import {Item} from "./types";
 
 const entryPoint = 'teams/games';
 
-const headers = {};
-const body = {};
 
-export const request = async (): Promise<GamesAPI | undefined> => {
+const headers = {};
+let body = {
+    date: '',
+    team_one_id: '',
+    team_one_goals: '',
+    team_two_goals: ''
+};
+
+
+export const request = async (data: {
+    date: Date,
+    team_one_id: string,
+    team_one_goals: number,
+    team_two_goals: number
+}): Promise<Item | undefined> => {
     try {
+        const {date, team_one_id, team_one_goals, team_two_goals} = data;
+
+        // set to body
+        let body = {
+            date, team_one_id, team_one_goals, team_two_goals
+        };
+
         let response = await fetch(url + entryPoint, {
             headers,
             method: 'POST',
@@ -28,5 +47,5 @@ export const request = async (): Promise<GamesAPI | undefined> => {
         console.log('err :', err);
         return Promise.reject(err)
     }
+};
 
-}

@@ -3,6 +3,8 @@ import './App.css';
 
 // todo ... Mykolai Lytvyn ... Will be discussed
 import {request as GamesRequest} from './commons/api/games';
+import {request as PlayersRequest} from './commons/api/players';
+import {request as TeamsRequest} from './commons/api/teams';
 
 const App: React.FC = () => {
 
@@ -13,6 +15,13 @@ const App: React.FC = () => {
     const wrapperFunction = async () => {
         const gamesResult = await GamesRequest();
         console.log(' gamesResult:', gamesResult);
+
+        const playersResult = await PlayersRequest();
+        console.log(' playersResult:', playersResult);
+
+        const teamsResult = await TeamsRequest();
+        console.log(' teamsResult:', teamsResult);
+
     };
 
     return (
