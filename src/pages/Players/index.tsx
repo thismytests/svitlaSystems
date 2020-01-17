@@ -25,6 +25,6 @@ export default function Artists() {
 
 
     return (
-        <div>Teams</div>
+        <div>Players</div>
     )
 }
