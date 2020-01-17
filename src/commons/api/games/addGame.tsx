@@ -36,11 +36,11 @@ export const request = async (data: {
         let json = await response.json();
 
         if (json.errorCode) {
-            return Promise.reject(json as GamesAPI);
+            return Promise.reject(json as Item);
         }
 
         if (response.ok) {
-            return Promise.resolve(json as GamesAPI);
+            return Promise.resolve(json as Item);
         }
 
     } catch (err) {
