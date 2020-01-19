@@ -18,9 +18,9 @@ export interface PlayersInfoProps {
   position: string,
   history: [
     {
-      team_id: string,
-      apps: number,
-      goals: number
+      team_id?: string,
+      apps?: number,
+      goals?: number
     }
   ],
   value: number

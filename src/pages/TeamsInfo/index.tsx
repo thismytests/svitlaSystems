@@ -31,7 +31,7 @@ export default function Teams(props: RouteComponentProps) {
     setTeam(teamsResult);
 
     const gamesResult = await getGamesApi();
-    setGames(gamesResult)
+    setGames(gamesResult);
 
     const playersResult = await getPlayersApi();
     setPlayers(playersResult);
@@ -84,6 +84,35 @@ export default function Teams(props: RouteComponentProps) {
 
   };
 
+
+  const createPlayersTemplate = () => {
+    // todo... Nick Litvin... will be removed
+    const result = [players?.data[0]] ;
+
+    if(!result) return ;
+
+    return result.map((item, i: number) => {
+      const gamesProps: PlayersInfoProps = {
+        id: item?.id || '',
+        age: item?.age || 0,
+        flag_url: item?.flag_url || '',
+        history: item?.history || [{}],
+        name: item?.name || '',
+        nationality: item?.nationality || '',
+        position: item?.position || '',
+        team_id: item?.team_id || '',
+        value: item?.value || 0
+      };
+
+
+      return (
+        <Grid item xs={12} key={i}>
+          <PlayersInfo {...gamesProps}/>
+        </Grid>
+      )
+    });
+
+  };
   useEffect(() => {
     getData();
   }, [props.history.location]);
@@ -94,6 +123,8 @@ export default function Teams(props: RouteComponentProps) {
       {createTeamTemplate()}
 
       {createGameTemplate()}
+
+      {createPlayersTemplate()}
     </div>
   )
 }
