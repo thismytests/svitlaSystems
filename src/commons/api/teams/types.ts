@@ -6,7 +6,6 @@ interface Item {
     "founded": number,
     "colour": string,
     "budget": number
-
 }
 
 export interface GamesAPI {

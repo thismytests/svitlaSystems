@@ -1,5 +1,4 @@
-interface Item {
-
+interface Player {
     id: string,
     team_id: string,
     name: string,
@@ -15,10 +14,9 @@ interface Item {
         }
     ],
     value: number
-
 }
 
-export interface GamesAPI {
+export interface PlayersAPI {
     success: true,
-    data: Array<Item>
+    data: Array<Player>
 }
