@@ -5,6 +5,7 @@ const entryPoint = 'teams/teamsInfo';
 
 
 const headers = {};
+
 let body = {
     date: '',
     team_one_id: '',

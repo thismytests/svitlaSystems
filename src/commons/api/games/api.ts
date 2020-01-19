@@ -28,5 +28,6 @@ export const request = async (): Promise<GamesAPI | undefined> => {
         console.log('err :', err);
         return Promise.reject(err)
     }
-
 }
+
+
