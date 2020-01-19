@@ -1,30 +1,46 @@
-import React, {useEffect} from 'react';
-
-import {request as GamesRequest} from "../../commons/api/games";
-import {request as PlayersRequest} from "../../commons/api/players";
+import React, {Component, useEffect, useState} from 'react';
+import {match, RouteComponentProps} from 'react-router';
+// request
 import {request as TeamsRequest} from "../../commons/api/teams";
 
+// components
+import Team, {TeamProps} from './team';
+import {GamesAPI} from "../../commons/api/teams/types";
 
-export default function Artists() {
+export default function Teams(props: RouteComponentProps) {
 
-    const wrapperFunction = async () => {
-        const gamesResult = await GamesRequest();
-        console.log(' gamesResult:', gamesResult);
+  const [teams, setTeams] = useState<GamesAPI>();
 
-        const playersResult = await PlayersRequest();
-        console.log(' playersResult:', playersResult);
+  const getTeams = async () => {
+    const teamsResult = await TeamsRequest();
+    setTeams(teamsResult);
+    console.log(' teamsResult:', teamsResult);
 
-        const teamsResult = await TeamsRequest();
-        console.log(' teamsResult:', teamsResult);
 
-    };
+  };
 
-    useEffect(() => {
-        wrapperFunction();
+  const createTeamsTemplate = () => {
+    return teams?.data.map((item, i: number) => {
+      const teamProps: TeamProps = {
+        id: item.id,
+        logo: item.logo_url,
+        name: item.name
+      };
+      return (
+        <Team key={i} {...teamProps}/>
+      )
     });
 
+  };
 
-    return (
-        <div>Teams</div>
-    )
+  useEffect(() => {
+    getTeams();
+  }, [props.history.location]);
+
+
+  return (
+    <div>
+      {createTeamsTemplate()}
+    </div>
+  )
 }

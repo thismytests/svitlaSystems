@@ -2,6 +2,8 @@ import React from 'react' ;
 import {
     BrowserRouter as Router,
     Route,
+  Switch,
+  Redirect
 } from 'react-router-dom';
 
 // routes
@@ -16,10 +18,13 @@ export default () => {
     // todo... Nick Litvin... must be default router
     console.log(' must works!:',);
     return (
-        <Router>
-            <Route path={routes.teams.url} component={Teams}/>
-            <Route path={routes.playerStatistics.url} component={PlayersStatistics}/>
-            <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
-        </Router>
+      <Router basename="/">
+        <Switch>
+          <Route path={routes.teams.url} component={Teams}/>
+          <Route path={routes.playerStatistics.url} component={PlayersStatistics}/>
+          <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
+          <Redirect to={routes.teams.url} />
+        </Switch>
+      </Router>
     );
 };

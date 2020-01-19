@@ -11,24 +11,24 @@ export function useRelocateToGamesRoute(id: string) {
     return [makeRelocate()];
 }
 
-export function useRelocateToPlayerStatistics(id: string) {
+export function useRelocateToPlayerStatistics() {
     const history = useHistory();
 
-    const makeRelocate = () => {
+    const makeRelocate = (id: string) => {
         history.push(routes.playerStatistics.url + '/' + id);
     };
 
-    return [makeRelocate()];
+    return [makeRelocate];
 }
 
 
-export function useRelocateToTeamsInfo(id: string) {
+export function useRelocateToTeamsInfo() {
     const history = useHistory();
 
-    const makeRelocate = () => {
+    const makeRelocate = (id: string) => {
         history.push(routes.playerStatistics.url + '/' + id);
     };
 
-    return [makeRelocate()];
+    return [makeRelocate];
 }
 
