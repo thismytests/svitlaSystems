@@ -5,7 +5,9 @@ import { Grid, Typography, NoSsr } from '@material-ui/core';
 
 import {request as GamesRequest} from "../../commons/api/games";
 import {request as PlayersRequest} from "../../commons/api/players";
-import {request as TeamsRequest} from "../../commons/api/teams";
+
+// request
+import {getTeams as getTeamsApi} from '../../commons/api/teams';
 
 
 export default function Artists() {
@@ -17,7 +19,7 @@ export default function Artists() {
         const playersResult = await PlayersRequest();
         console.log(' playersResult:', playersResult);
 
-        const teamsResult = await TeamsRequest();
+        const teamsResult = await getTeamsApi();
         console.log(' teamsResult:', teamsResult);
 
     };

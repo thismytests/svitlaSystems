@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {RouteComponentProps} from 'react-router';
 
 // request
-import {request as TeamsRequest} from '../../commons/api/teams';
+import {getTeams as getTeamsApi} from '../../commons/api/teams';
 
 // components
 import Team, {TeamProps} from './team';
@@ -15,7 +15,7 @@ export default function Teams(props: RouteComponentProps) {
   const [teams, setTeams] = useState<GamesAPI>();
 
   const getTeams = async () => {
-    const teamsResult = await TeamsRequest();
+    const teamsResult = await getTeamsApi();
     setTeams(teamsResult);
   };
 
