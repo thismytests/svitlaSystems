@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import {useStyles} from './styles';
 import {render} from "react-dom";
 
-interface TeamInfoProps {
+export interface PlayersInfoProps {
   id: string,
   team_id: string,
   name: string,
@@ -26,7 +26,7 @@ interface TeamInfoProps {
   value: number
 }
 
-export default function PlayersInfo(props: TeamInfoProps) {
+export default function PlayersInfo(props: PlayersInfoProps) {
   // styles
   const classes = useStyles();
 
@@ -43,17 +43,17 @@ export default function PlayersInfo(props: TeamInfoProps) {
 
   const renderHistory = () => {
     return history.map((item) => {
-      return <>
+      return <Grid item xs={12}>
         <Grid item xs={12}>{item.apps}</Grid>
         <Grid item xs={12}>{item.goals}</Grid>
-      </>
+      </Grid>
     })
   };
 
   return (
     <Card className={classes.root}>
       <Grid item container onClick={relocateToAnotherPage}>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
           <Typography color="textSecondary">{name}</Typography>
         </Grid>
 

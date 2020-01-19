@@ -6,13 +6,13 @@ import {getTeams as getTeamsApi} from '../../commons/api/teams';
 
 // components
 import Team, {TeamProps} from './team';
-import {GamesAPI} from '../../commons/api/teams/types';
+import {TeamsAPI} from '../../commons/api/teams/types';
 
 // styles
 import {Grid} from '@material-ui/core';
 
 export default function Teams(props: RouteComponentProps) {
-  const [teams, setTeams] = useState<GamesAPI>();
+  const [teams, setTeams] = useState<TeamsAPI>();
 
   const getTeams = async () => {
     const teamsResult = await getTeamsApi();

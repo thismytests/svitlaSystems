@@ -7,14 +7,14 @@ import {useRelocateToTeamsInfo} from '../../../hooks';
 import Typography from '@material-ui/core/Typography';
 import {useStyles} from './styles';
 
-interface TeamInfoProps {
+export interface TeamInfoProps {
   "id": string,
-  "name": string,
-  "city": string,
-  "logo_url": string,
-  "founded": number,
-  "colour": string,
-  "budget": number
+  "name"?: string,
+  "city"?: string,
+  "logo_url"?: string,
+  "founded"?: number,
+  "colour"?: string,
+  "budget"?: number
 }
 
 export default function TeamInfo(props: TeamInfoProps) {

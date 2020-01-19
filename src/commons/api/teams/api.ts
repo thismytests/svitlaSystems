@@ -1,5 +1,5 @@
 import {url} from '../constants';
-import {GamesAPI} from "./types";
+import {TeamsAPI} from "./types";
 import {stringify} from 'query-string';
 
 const entryPoint = 'teams';
@@ -7,7 +7,7 @@ const entryPoint = 'teams';
 
 const request = async (data?: {
   team_id?: string
-}): Promise<GamesAPI | undefined> => {
+}): Promise<TeamsAPI | undefined> => {
   const headers = {};
   const body = {};
 
@@ -28,11 +28,11 @@ const request = async (data?: {
     let json = await response.json();
 
     if (json.errorCode) {
-      return Promise.reject(json as GamesAPI);
+      return Promise.reject(json as TeamsAPI);
     }
 
     if (response.ok) {
-      return Promise.resolve(json as GamesAPI);
+      return Promise.resolve(json as TeamsAPI);
     }
 
   } catch (err) {
@@ -42,10 +42,10 @@ const request = async (data?: {
 
 };
 
-export const getTeams = (): Promise<GamesAPI | undefined> => {
+export const getTeams = (): Promise<TeamsAPI | undefined> => {
   return request()
 };
 
-export const getTeam = (team_id: string): Promise<GamesAPI | undefined> => {
+export const getTeam = (team_id: string): Promise<TeamsAPI | undefined> => {
   return request({team_id})
 };

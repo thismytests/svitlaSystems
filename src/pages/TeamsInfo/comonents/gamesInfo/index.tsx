@@ -7,9 +7,9 @@ import {useRelocateToTeamsInfo} from '../../../hooks';
 import Typography from '@material-ui/core/Typography';
 import {useStyles} from './styles';
 
-interface GamesInfoProps {
+export interface GamesInfoProps {
   "id": string,
-  "date": Date,
+  "date"?: Date,
   "team_one_id": string,
   "team_one_goals": number,
   "team_two_goals": number

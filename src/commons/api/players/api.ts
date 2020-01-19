@@ -1,7 +1,7 @@
 import {url} from '../constants';
-import {PlayersAPI} from "./types";
+import {PlayersAPI} from './types';
 
-const entryPoint = 'teams/playerStatistics';
+const entryPoint = 'teams/players';
 
 
 const headers = {};
@@ -32,7 +32,7 @@ export const request = async (data?: {
         console.log('err :', err);
         return Promise.reject(err)
     }
-}
+};
 
 export const getPlayers = (): Promise<PlayersAPI | undefined> => {
     return request()
