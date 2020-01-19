@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {RouteComponentProps} from 'react-router';
+
 // request
-import {request as TeamsRequest} from "../../commons/api/teams";
+import {request as TeamsRequest} from '../../commons/api/teams';
 
 // components
 import Team, {TeamProps} from './team';
 import {GamesAPI} from '../../commons/api/teams/types';
 
 // styles
-import {Grid} from "@material-ui/core";
+import {Grid} from '@material-ui/core';
 
 export default function Teams(props: RouteComponentProps) {
   const [teams, setTeams] = useState<GamesAPI>();

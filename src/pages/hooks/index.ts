@@ -26,7 +26,7 @@ export function useRelocateToTeamsInfo() {
     const history = useHistory();
 
     const makeRelocate = (id: string) => {
-        history.push(routes.playerStatistics.url + '/' + id);
+        history.push(routes.teamsInfo.url + '/' + id);
     };
 
     return [makeRelocate];

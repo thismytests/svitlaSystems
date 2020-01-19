@@ -1,30 +1,48 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import {RouteComponentProps} from 'react-router';
 
-import {request as GamesRequest} from "../../commons/api/games";
-import {request as PlayersRequest} from "../../commons/api/players";
-import {request as TeamsRequest} from "../../commons/api/teams";
+// request
+import {request as TeamsRequest} from '../../commons/api/teams';
 
+// components
+import Team, {TeamProps} from './team';
+import {GamesAPI} from '../../commons/api/teams/types';
 
-export default function Artists() {
+// styles
+import {Grid} from '@material-ui/core';
 
-    const wrapperFunction = async () => {
-        const gamesResult = await GamesRequest();
-        console.log(' gamesResult:', gamesResult);
+export default function Teams(props: RouteComponentProps) {
+  const [teams, setTeams] = useState<GamesAPI>();
 
-        const playersResult = await PlayersRequest();
-        console.log(' playersResult:', playersResult);
+  const getTeams = async () => {
+    const teamsResult = await TeamsRequest();
+    setTeams(teamsResult);
+  };
 
-        const teamsResult = await TeamsRequest();
-        console.log(' teamsResult:', teamsResult);
-
-    };
-
-    useEffect(() => {
-        wrapperFunction();
+  const createTeamsTemplate = () => {
+    return teams?.data.map((item, i: number) => {
+      const teamProps: TeamProps = {
+        id: item.id,
+        logo: item.logo_url,
+        name: item.name
+      };
+      return (
+        <Grid item xs={12} key={item.id}>
+          <Team  {...teamProps}/>
+        </Grid>
+      )
     });
 
+  };
 
-    return (
-        <div>Games</div>
-    )
+  useEffect(() => {
+    getTeams();
+  }, [props.history.location]);
+
+
+  return (
+    <div>
+      {createTeamsTemplate()}
+    </div>
+  )
 }
