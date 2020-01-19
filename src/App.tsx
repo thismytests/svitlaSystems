@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './App.css';
 
 // material ui
@@ -6,6 +7,7 @@ import {Grid, Typography, NoSsr, makeStyles, Paper} from '@material-ui/core';
 
 // routing
 import Routing from './pages/routing';
+import {routes} from './pages/config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,10 +26,6 @@ const App: React.FC = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        {/*header*/}
-        <Grid item xs={12}></Grid>
-
-
         {/*indentation*/}
         <Grid item lg={2} sm={12}></Grid>
 

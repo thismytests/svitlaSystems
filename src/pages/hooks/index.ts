@@ -1,7 +1,7 @@
 import {useHistory} from 'react-router-dom';
 import {routes} from '../config';
 
-export function useRelocateToGamesRoute(id: string) {
+export function useRelocateToGamesRoute() {
   const history = useHistory();
 
   const makeRelocate = () => {
