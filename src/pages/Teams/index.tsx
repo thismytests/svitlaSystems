@@ -1,22 +1,21 @@
-import React, {Component, useEffect, useState} from 'react';
-import {match, RouteComponentProps} from 'react-router';
+import React, {useEffect, useState} from 'react';
+import {RouteComponentProps} from 'react-router';
 // request
 import {request as TeamsRequest} from "../../commons/api/teams";
 
 // components
 import Team, {TeamProps} from './team';
-import {GamesAPI} from "../../commons/api/teams/types";
+import {GamesAPI} from '../../commons/api/teams/types';
+
+// styles
+import {Grid} from "@material-ui/core";
 
 export default function Teams(props: RouteComponentProps) {
-
   const [teams, setTeams] = useState<GamesAPI>();
 
   const getTeams = async () => {
     const teamsResult = await TeamsRequest();
     setTeams(teamsResult);
-    console.log(' teamsResult:', teamsResult);
-
-
   };
 
   const createTeamsTemplate = () => {
@@ -27,7 +26,9 @@ export default function Teams(props: RouteComponentProps) {
         name: item.name
       };
       return (
-        <Team key={i} {...teamProps}/>
+        <Grid item xs={12} key={item.id}>
+          <Team  {...teamProps}/>
+        </Grid>
       )
     });
 

@@ -1,8 +1,13 @@
 import React from 'react';
-import {Avatar, Grid} from "@material-ui/core";
+import {Avatar, Card, Grid} from "@material-ui/core";
 
 // routing
 import {useRelocateToTeamsInfo} from '../../hooks';
+import Typography from "@material-ui/core/Typography";
+import {useStyles} from "./styles";
+
+
+
 
 export interface TeamProps {
   id: string,
@@ -11,6 +16,9 @@ export interface TeamProps {
 }
 
 export default function Team(props: TeamProps) {
+  // styles
+  const classes = useStyles();
+
   const {id, name, logo} = props;
   const [makeRelocate] = useRelocateToTeamsInfo();
 
@@ -19,11 +27,16 @@ export default function Team(props: TeamProps) {
   };
 
   return (
-    <Grid item container onClick={relocateToAnotherPage}>
-      <Grid item xs={2}>
-        <Avatar alt="Remy Sharp" src={logo}/>
+    <Card className={classes.root}>
+      <Grid item container onClick={relocateToAnotherPage}>
+        <Grid item xs={2}>
+          <Avatar alt="Remy Sharp" src={logo}/>
+        </Grid>
+        <Grid item xs={10}>
+          <Typography color="textSecondary">{name}</Typography>
+        </Grid>
+
       </Grid>
-      <Grid item xs={10} alignContent={'flex-start'}>{name}</Grid>
-    </Grid>
+    </Card>
   )
 }

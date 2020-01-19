@@ -25,13 +25,11 @@ const App: React.FC = () => {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 {/*header*/}
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>xs=12</Paper>
-                </Grid>
+                <Grid item xs={12}></Grid>
 
-                <Grid item lg={2} sm={12}>
-                    <Paper className={classes.paper}>xs=6</Paper>
-                </Grid>
+
+                {/*indentation*/}
+                <Grid item lg={2} sm={12}></Grid>
 
                 {/*Routing*/}
                 <Grid item lg={8} sm={12}>
@@ -41,9 +39,8 @@ const App: React.FC = () => {
                     </Paper>
                 </Grid>
 
-                <Grid item lg={2} sm={12}>
-                    <Paper className={classes.paper}>xs=6</Paper>
-                </Grid>
+                {/*indentation*/}
+                <Grid item lg={2} sm={12}></Grid>
 
             </Grid>
         </div>
