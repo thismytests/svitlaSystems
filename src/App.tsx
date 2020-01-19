@@ -26,17 +26,10 @@ const App: React.FC = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        {/*indentation*/}
-        <Grid item lg={2} sm={12}></Grid>
-
         {/*Routing*/}
-        <Grid item lg={8} sm={12}>
+        <Grid item sm={12}>
           <Routing/>
         </Grid>
-
-        {/*indentation*/}
-        <Grid item lg={2} sm={12}></Grid>
-
       </Grid>
     </div>
   );

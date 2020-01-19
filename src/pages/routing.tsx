@@ -9,8 +9,6 @@ import {
 // react material
 import {AppBar, Grid, IconButton, Typography} from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
 // routes
 import {routes} from './config';
 
@@ -19,7 +17,9 @@ import Teams from './Teams';
 import PlayersStatistics from './PlayerStatitics';
 import TeamsInfo from './TeamsInfo';
 
-import {useRelocateToGamesRoute} from './hooks';
+// not found page
+import NotFoundPage from '../404page';
+
 // styles
 import {useStyles} from './styles';
 
@@ -47,13 +47,25 @@ export default () => {
       </AppBar>
 
 
-      {/*routes*/}
-      <Switch>
-        <Route path={routes.teams.url} component={Teams}/>
-        <Route path={routes.playerStatistics.url} component={PlayersStatistics}/>
-        <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
-        <Redirect to={routes.teams.url}/>
-      </Switch>
+      <Grid container>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={8}>
+          {/*routes*/}
+          <Switch>
+            <Route path={routes.teams.url} component={Teams}/>
+            <Route path={routes.playerStatistics.url} component={PlayersStatistics}/>
+            <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
+
+            <Route exact path='/' component={Teams}/>
+            <Route path="*" component={NotFoundPage} />
+
+            {/*<Redirect to={routes.teams.url}/>*/}
+          </Switch>
+        </Grid>
+        <Grid item xs={2}></Grid>
+
+      </Grid>
+
     </Router>
   );
 };
