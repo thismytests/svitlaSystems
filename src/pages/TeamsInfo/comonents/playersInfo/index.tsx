@@ -1,12 +1,11 @@
 import React from 'react';
-import {Avatar, Card, Grid} from "@material-ui/core";
+import {Card, Grid} from "@material-ui/core";
 
 // routing
 import {useRelocateToTeamsInfo} from '../../../hooks';
 
 import Typography from '@material-ui/core/Typography';
 import {useStyles} from './styles';
-import {render} from "react-dom";
 
 export interface PlayersInfoProps {
   id: string,
@@ -42,8 +41,8 @@ export default function PlayersInfo(props: PlayersInfoProps) {
   };
 
   const renderHistory = () => {
-    return history.map((item) => {
-      return <Grid item xs={12}>
+    return history.map((item, i) => {
+      return <Grid item xs={12} key={i}>
         <Grid item xs={12}>{item.apps}</Grid>
         <Grid item xs={12}>{item.goals}</Grid>
       </Grid>

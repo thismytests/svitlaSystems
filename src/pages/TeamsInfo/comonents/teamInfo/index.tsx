@@ -30,21 +30,32 @@ export default function TeamInfo(props: TeamInfoProps) {
 
   return (
     <Card className={classes.root}>
-      <Grid item container onClick={relocateToAnotherPage}>
+      <Grid item container xs={12} onClick={relocateToAnotherPage}>
         <Grid item xs={2}>
           <Avatar alt={name} src={logo_url}/>
         </Grid>
 
-        <Grid item xs={2}>{name}</Grid>
-        <Grid item xs={2}>{city}</Grid>
-        <Grid item xs={2}>{logo_url}</Grid>
-        <Grid item xs={2}>{founded}</Grid>
-        <Grid item xs={2}>{colour}</Grid>
-        <Grid item xs={2}>{budget}</Grid>
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{colour}</Typography>
+        </Grid>
 
-
-        <Grid item xs={10}>
+        <Grid item xs={2}>
           <Typography color="textSecondary">{name}</Typography>
+        </Grid>
+
+
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{city}</Typography>
+        </Grid>
+
+
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{founded}</Typography>
+        </Grid>
+
+
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{budget}</Typography>
         </Grid>
 
       </Grid>

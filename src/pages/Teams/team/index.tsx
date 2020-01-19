@@ -7,8 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./styles";
 
 
-
-
 export interface TeamProps {
   id: string,
   name: string,

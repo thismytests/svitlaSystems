@@ -1,15 +1,19 @@
 import React from 'react';
-import {Avatar, Card, Grid} from "@material-ui/core";
+
+// react material
+import {Card, Grid} from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
+import {useStyles} from './styles';
+
+// date convertor
+import {convertDate} from '../../../../commons/convertors/dateConvertor';
 
 // routing
 import {useRelocateToTeamsInfo} from '../../../hooks';
 
-import Typography from '@material-ui/core/Typography';
-import {useStyles} from './styles';
-
 export interface GamesInfoProps {
   "id": string,
-  "date"?: Date,
+  "date": Date,
   "team_one_id": string,
   "team_one_goals": number,
   "team_two_goals": number
@@ -26,18 +30,20 @@ export default function GamesInfo(props: GamesInfoProps) {
     makeRelocate(id)
   };
 
+  const convertedDate = () => convertDate(date);
+
   return (
     <Card className={classes.root}>
       <Grid item container onClick={relocateToAnotherPage}>
-        <Grid item xs={12}>
-          <Typography color="textSecondary">{date}</Typography>
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{convertedDate()}</Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={4}>
           <Typography color="textSecondary">{team_one_goals}</Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={4}>
           <Typography color="textSecondary">{team_two_goals}</Typography>
         </Grid>
       </Grid>

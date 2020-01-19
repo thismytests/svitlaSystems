@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 export default function Artists() {
 
-    return (
-        <div>Players</div>
-    )
+  return (
+    <div>Players</div>
+  )
 }

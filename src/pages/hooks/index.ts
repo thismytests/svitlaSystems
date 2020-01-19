@@ -1,34 +1,34 @@
 import {useHistory} from 'react-router-dom';
-import {RouteConfig, routes} from '../config';
+import {routes} from '../config';
 
 export function useRelocateToGamesRoute(id: string) {
-    const history = useHistory();
+  const history = useHistory();
 
-    const makeRelocate = () => {
-        history.push(routes.teams.url);
-    };
+  const makeRelocate = () => {
+    history.push(routes.teams.url);
+  };
 
-    return [makeRelocate()];
+  return [makeRelocate()];
 }
 
 export function useRelocateToPlayerStatistics() {
-    const history = useHistory();
+  const history = useHistory();
 
-    const makeRelocate = (id: string) => {
-        history.push(routes.playerStatistics.url + '/' + id);
-    };
+  const makeRelocate = (id: string) => {
+    history.push(routes.playerStatistics.url + '/' + id);
+  };
 
-    return [makeRelocate];
+  return [makeRelocate];
 }
 
 
 export function useRelocateToTeamsInfo() {
-    const history = useHistory();
+  const history = useHistory();
 
-    const makeRelocate = (id: string) => {
-        history.push(routes.teamsInfo.url + '/' + id);
-    };
+  const makeRelocate = (id: string) => {
+    history.push(routes.teamsInfo.url + '/' + id);
+  };
 
-    return [makeRelocate];
+  return [makeRelocate];
 }
 
