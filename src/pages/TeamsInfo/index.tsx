@@ -20,7 +20,12 @@ import {GamesAPI} from '../../commons/api/games/types';
 // styles
 import {Grid} from '@material-ui/core';
 
+// styles
+import {useStyles} from './styles';
+
 export default function Teams(props: RouteComponentProps) {
+  const classes = useStyles();
+
   const [team, setTeam] = useState<TeamsAPI>();
   const [players, setPlayers] = useState<PlayersAPI>();
   const [game, setGames] = useState<GamesAPI>();
@@ -119,12 +124,21 @@ export default function Teams(props: RouteComponentProps) {
 
 
   return (
-    <div>
-      {createTeamTemplate()}
+    <Grid container item xs={12}>
+      <Grid item container xs={12} className={classes.item}>
+        {createTeamTemplate()}
+      </Grid>
 
-      {createGameTemplate()}
 
-      {createPlayersTemplate()}
-    </div>
+      <Grid item container lg={6} sm={12} className={classes.item}>
+        {createPlayersTemplate()}
+      </Grid>
+
+      <Grid item container lg={6} sm={12} className={classes.item}>
+        {createGameTemplate()}
+      </Grid>
+
+
+    </Grid>
   )
 }

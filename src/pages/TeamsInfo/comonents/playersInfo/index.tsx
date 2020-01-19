@@ -42,9 +42,9 @@ export default function PlayersInfo(props: PlayersInfoProps) {
 
   const renderHistory = () => {
     return history.map((item, i) => {
-      return <Grid item xs={12} key={i}>
-        <Grid item xs={12}>{item.apps}</Grid>
-        <Grid item xs={12}>{item.goals}</Grid>
+      return <Grid item container xs={12} key={i}>
+        <Grid item xs={6}>{item.apps}</Grid>
+        <Grid item xs={6}>{item.goals}</Grid>
       </Grid>
     })
   };
@@ -56,12 +56,27 @@ export default function PlayersInfo(props: PlayersInfoProps) {
           <Typography color="textSecondary">{name}</Typography>
         </Grid>
 
-        <Grid item xs={2}>{age}</Grid>
-        <Grid item xs={2}>{nationality}</Grid>
-        <Grid item xs={2}>{flag_url}</Grid>
-        <Grid item xs={2}>{position}</Grid>
-        <Grid item xs={2}>{value}</Grid>
-        {renderHistory()}
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{age}</Typography>
+        </Grid>
+
+        {/*<Grid item xs={2}>*/}
+        {/*  <Typography color="textSecondary">{flag_url}</Typography>*/}
+        {/*</Grid>*/}
+
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{position}</Typography>
+        </Grid>
+
+
+        <Grid item xs={2}>
+          <Typography color="textSecondary">{value}</Typography>
+        </Grid>
+
+        <Grid item xs={2}>
+          {renderHistory()}
+        </Grid>
+
       </Grid>
     </Card>
   )

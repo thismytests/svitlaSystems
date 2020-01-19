@@ -33,10 +33,7 @@ const App: React.FC = () => {
 
         {/*Routing*/}
         <Grid item lg={8} sm={12}>
-          <Paper className={classes.paper}>
-            {/*routing*/}
-            <Routing/>
-          </Paper>
+          <Routing/>
         </Grid>
 
         {/*indentation*/}

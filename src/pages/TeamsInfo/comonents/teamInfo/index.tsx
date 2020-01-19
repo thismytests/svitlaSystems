@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar, Card, Grid} from "@material-ui/core";
+import {Avatar, Card, Grid, Paper} from "@material-ui/core";
 
 // routing
 import {useRelocateToTeamsInfo} from '../../../hooks';
@@ -36,11 +36,13 @@ export default function TeamInfo(props: TeamInfoProps) {
         </Grid>
 
         <Grid item xs={2}>
-          <Typography color="textSecondary">{colour}</Typography>
-        </Grid>
-
-        <Grid item xs={2}>
-          <Typography color="textSecondary">{name}</Typography>
+          <Paper elevation={3} style={
+            {
+              'background': colour,
+              'height': '50px',
+              'width': '50px'
+            }
+          }/>
         </Grid>
 
 
