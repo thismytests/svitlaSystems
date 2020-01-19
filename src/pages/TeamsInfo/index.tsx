@@ -94,8 +94,6 @@ export default function Teams(props: RouteComponentProps) {
     // todo... Nick Litvin... will be removed
     const result = [players?.data[0]];
 
-    if (!result) return;
-
     return result.map((item, i: number) => {
       const gamesProps: PlayersInfoProps = {
         id: item?.id || '',

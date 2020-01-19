@@ -11,7 +11,7 @@ export function useRelocateToGamesRoute() {
   return [makeRelocate()];
 }
 
-export function useRelocateToPlayerStatistics() {
+export function useRelocateToPlayerStatistics(id: string) {
   const history = useHistory();
 
   const makeRelocate = (id: string) => {

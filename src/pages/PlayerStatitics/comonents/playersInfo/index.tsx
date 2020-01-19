@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Grid} from "@material-ui/core";
 
 // routing
-import {useRelocateToPlayerStatistics} from '../../../hooks';
+import {useRelocateToTeamsInfo} from '../../../hooks';
 
 import Typography from '@material-ui/core/Typography';
 import {useStyles} from './styles';
@@ -34,7 +34,7 @@ export default function PlayersInfo(props: PlayersInfoProps) {
     position, history, value
   } = props;
 
-  const [makeRelocate] = useRelocateToPlayerStatistics(id);
+  const [makeRelocate] = useRelocateToTeamsInfo();
 
   const relocateToAnotherPage = () => {
     makeRelocate(id)
@@ -59,6 +59,10 @@ export default function PlayersInfo(props: PlayersInfoProps) {
         <Grid item xs={2}>
           <Typography color="textSecondary">{age}</Typography>
         </Grid>
+
+        {/*<Grid item xs={2}>*/}
+        {/*  <Typography color="textSecondary">{flag_url}</Typography>*/}
+        {/*</Grid>*/}
 
         <Grid item xs={2}>
           <Typography color="textSecondary">{position}</Typography>
