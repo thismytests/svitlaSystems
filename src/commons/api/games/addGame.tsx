@@ -1,7 +1,7 @@
 import {url} from '../constants';
 import {Item} from "./types";
 
-const entryPoint = 'teams/games';
+const entryPoint = 'teams/teamsInfo';
 
 
 const headers = {};

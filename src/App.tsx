@@ -29,19 +29,19 @@ const App: React.FC = () => {
                     <Paper className={classes.paper}>xs=12</Paper>
                 </Grid>
 
-                <Grid item xs={2}>
+                <Grid item lg={2} sm={12}>
                     <Paper className={classes.paper}>xs=6</Paper>
                 </Grid>
 
                 {/*Routing*/}
-                <Grid item xs={8}>
+                <Grid item lg={8} sm={12}>
                     <Paper className={classes.paper}>
                         {/*routing*/}
                         <Routing/>
                     </Paper>
                 </Grid>
 
-                <Grid item xs={2}>
+                <Grid item lg={2} sm={12}>
                     <Paper className={classes.paper}>xs=6</Paper>
                 </Grid>
 

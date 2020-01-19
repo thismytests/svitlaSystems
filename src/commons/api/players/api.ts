@@ -1,7 +1,7 @@
 import {url} from '../constants';
 import {GamesAPI} from "./types";
 
-const entryPoint = 'teams/players';
+const entryPoint = 'teams/playerStatistics';
 
 
 const headers = {};
