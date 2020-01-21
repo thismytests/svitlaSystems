@@ -103,14 +103,15 @@ export default function Teams(props: RouteComponentProps) {
       </Grid>
 
 
-      <Grid item container lg={6} sm={12} className={classes.item}>
-        {createPlayersTemplate()}
-      </Grid>
+      <Grid container item xs={12} alignItems={'flex-start'}>
+        <Grid item container lg={6} sm={12} className={classes.item}>
+          {createPlayersTemplate()}
+        </Grid>
 
-      <Grid item container lg={6} sm={12} className={classes.item}>
-        {createGameTemplate()}
+        <Grid item container lg={6} sm={12} className={classes.item}>
+          {createGameTemplate()}
+        </Grid>
       </Grid>
-
 
     </Grid>
   )
