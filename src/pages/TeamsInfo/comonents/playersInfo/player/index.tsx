@@ -38,30 +38,28 @@ export default function PlayerInfo(props: PlayersInfoProps) {
   };
 
   return (
-    <Card className={classes.root}>
-      <Grid item container onClick={relocateToAnotherPage}>
-        <Grid item xs={2}>
-          <Typography color="textSecondary">{name}</Typography>
-        </Grid>
-
-        <Grid item xs={2}>
-          <Typography color="textSecondary">{age}</Typography>
-        </Grid>
-
-        <Grid item xs={2}>
-          <Typography color="textSecondary">{position}</Typography>
-        </Grid>
-
-
-        <Grid item xs={2}>
-          <Typography color="textSecondary">{value}</Typography>
-        </Grid>
-
-        <Grid item xs={2}>
-          {renderHistory()}
-        </Grid>
-
+    <Grid item container onClick={relocateToAnotherPage}>
+      <Grid item xs={2}>
+        <Typography color="textSecondary">{name}</Typography>
       </Grid>
-    </Card>
+
+      <Grid item xs={2}>
+        <Typography color="textSecondary">{age}</Typography>
+      </Grid>
+
+      <Grid item xs={2}>
+        <Typography color="textSecondary">{position}</Typography>
+      </Grid>
+
+
+      <Grid item xs={2}>
+        <Typography color="textSecondary">{value}</Typography>
+      </Grid>
+
+      <Grid item xs={2}>
+        {renderHistory()}
+      </Grid>
+
+    </Grid>
   )
 }

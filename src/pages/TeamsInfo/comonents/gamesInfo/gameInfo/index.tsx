@@ -12,7 +12,7 @@ import {convertDate} from '../../../../../commons/convertors/dateConvertor';
 import {useRelocateToTeamsInfo} from '../../../../hooks';
 import {GamesInfoProps} from '../types';
 
-export default function GamesInfo(props: GamesInfoProps) {
+export default function GameInfo(props: GamesInfoProps) {
   // styles
   const classes = useStyles();
 

@@ -25,5 +25,4 @@ export default function PlayersInfo(props: { data: Array<PlayersInfoProps> | und
       {createPlayersTemplate()}
     </>
   )
-
 }
