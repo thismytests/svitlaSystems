@@ -9,19 +9,21 @@ import {getPlayers as getPlayersApi} from '../../commons/api/players';
 
 // components
 import TeamInfo, {TeamInfoProps} from './comonents/teamInfo';
-import GamesInfo, {GamesInfoProps} from './comonents/gamesInfo';
 import PlayersInfo, {PlayersInfoProps} from './comonents/playersInfo';
 
 // types
 import {TeamsAPI} from '../../commons/api/teams/types';
 import {PlayersAPI} from '../../commons/api/players/types';
 import {GamesAPI} from '../../commons/api/games/types';
+import {GamesInfoProps} from "./comonents/gamesInfo/types";
 
 // styles
 import {Grid} from '@material-ui/core';
 
 // styles
 import {useStyles} from './styles';
+import GamesInfo from "./comonents/gamesInfo";
+
 
 export default function Teams(props: RouteComponentProps) {
   const classes = useStyles();
