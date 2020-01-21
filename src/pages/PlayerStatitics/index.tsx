@@ -27,10 +27,7 @@ export default function Teams(props: RouteComponentProps) {
   };
 
   const createPlayersTemplate = () => {
-    // todo... Nick Litvin... will be removed
-    const result = [players?.data[0]];
-
-    return result.map((item, i: number) => {
+    return players?.data?.map((item, i: number) => {
       const gamesProps: PlayersInfoProps = {
         id: item?.id || '',
         age: item?.age || 0,

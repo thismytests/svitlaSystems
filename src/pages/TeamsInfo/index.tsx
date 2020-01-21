@@ -9,19 +9,19 @@ import {getPlayers as getPlayersApi} from '../../commons/api/players';
 
 // components
 import TeamInfo, {TeamInfoProps} from './comonents/teamInfo';
-import PlayersInfo, {PlayersInfoProps} from './comonents/playersInfo';
+import PlayersInfo from './comonents/playersInfo';
+import GamesInfo from './comonents/gamesInfo';
 
 // types
 import {TeamsAPI} from '../../commons/api/teams/types';
 import {PlayersAPI} from '../../commons/api/players/types';
 import {GamesAPI} from '../../commons/api/games/types';
 
-// styles
+// material
 import {Grid} from '@material-ui/core';
 
 // styles
 import {useStyles} from './styles';
-import GamesInfo from "./comonents/gamesInfo";
 
 
 export default function Teams(props: RouteComponentProps) {
@@ -79,32 +79,18 @@ export default function Teams(props: RouteComponentProps) {
   };
 
 
-  const createPlayersTemplate = () => {
-    // todo... Nick Litvin... will be removed
-    const result = [players?.data[0]];
-
-    return result.map((item, i: number) => {
-      const gamesProps: PlayersInfoProps = {
-        id: item?.id || '',
-        age: item?.age || 0,
-        flag_url: item?.flag_url || '',
-        history: item?.history || [{}],
-        name: item?.name || '',
-        nationality: item?.nationality || '',
-        position: item?.position || '',
-        team_id: item?.team_id || '',
-        value: item?.value || 0
-      };
+  const createPlayersTemplate = (): any => {
+    const playersInfoProps = {
+      data: players?.data
+    };
 
 
-      return (
-        <Grid item xs={12} key={i}>
-          <PlayersInfo {...gamesProps}/>
-        </Grid>
-      )
-    });
-
+    return (
+      <>
+        <PlayersInfo {...playersInfoProps}/>
+      </>)
   };
+
   useEffect(() => {
     getData();
   }, [props.history.location]);

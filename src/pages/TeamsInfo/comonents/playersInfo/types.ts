@@ -1,4 +1,4 @@
-interface Player {
+export interface PlayersInfoProps {
   id: string,
   team_id: string,
   name: string,
@@ -14,9 +14,4 @@ interface Player {
     }
   ],
   value: number
-}
-
-export interface PlayersAPI {
-  success: true,
-  data: Array<Player> | undefined
 }
