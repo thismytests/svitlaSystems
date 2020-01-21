@@ -1,47 +1,39 @@
 import React from 'react';
 
 // react material
-import {Card, Grid} from "@material-ui/core";
-import Typography from '@material-ui/core/Typography';
-import {useStyles} from './styles';
-
-// date convertor
-import {convertDate} from '../../../../commons/convertors/dateConvertor';
-
-// routing
-import {useRelocateToTeamsInfo} from '../../../hooks';
+import {Grid} from '@material-ui/core';
 
 // types
 import {GamesInfoProps} from './types';
+import Item from './gameInfo';
 
-export default function GamesInfo(props: GamesInfoProps) {
-  // styles
-  const classes = useStyles();
+export default function GamesInfo(props: { data: Array<GamesInfoProps> | undefined }) {
+  const createGameTemplate = () => {
+    if (props.data === undefined) {
+      return null
+    }
 
-  const {id, date, team_one_id, team_one_goals, team_two_goals} = props;
-  const [makeRelocate] = useRelocateToTeamsInfo();
+    return props.data.map((item, i: number) => {
+      const gamesProps: GamesInfoProps = {
+        id: item?.id || '',
+        date: item?.date || new Date(),
+        team_one_goals: item?.team_one_goals || 0,
+        team_one_id: item?.team_one_id || '',
+        team_two_goals: item?.team_two_goals || 0
+      };
 
-  const relocateToAnotherPage = () => {
-    makeRelocate(id)
+      return (
+        <Grid item xs={12} key={i}>
+          <Item {...gamesProps}/>
+        </Grid>
+      )
+    });
+
   };
 
-  const convertedDate = () => convertDate(date);
-
   return (
-    <Card className={classes.root}>
-      <Grid item container onClick={relocateToAnotherPage}>
-        <Grid item xs={2}>
-          <Typography color="textSecondary">{convertedDate()}</Typography>
-        </Grid>
-
-        <Grid item xs={4}>
-          <Typography color="textSecondary">{team_one_goals}</Typography>
-        </Grid>
-
-        <Grid item xs={4}>
-          <Typography color="textSecondary">{team_two_goals}</Typography>
-        </Grid>
-      </Grid>
-    </Card>
+    <>
+      {createGameTemplate()}
+    </>
   )
 }

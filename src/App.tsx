@@ -1,13 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import './App.css';
 
 // material ui
-import {Grid, Typography, NoSsr, makeStyles, Paper} from '@material-ui/core';
+import {Grid, makeStyles} from '@material-ui/core';
 
 // routing
 import Routing from './pages/routing';
-import {routes} from './pages/config';
 
 const useStyles = makeStyles(theme => ({
   root: {

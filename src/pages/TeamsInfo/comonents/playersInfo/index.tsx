@@ -30,7 +30,7 @@ export default function PlayersInfo(props: PlayersInfoProps) {
   const classes = useStyles();
 
   const {
-    id, team_id, name, age, nationality, flag_url,
+    id, name, age,
     position, history, value
   } = props;
 

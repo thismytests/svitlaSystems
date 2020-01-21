@@ -16,7 +16,7 @@ export default function GamesInfo(props: GamesInfoProps) {
   // styles
   const classes = useStyles();
 
-  const {id, date, team_one_id, team_one_goals, team_two_goals} = props;
+  const {id, date, team_one_goals, team_two_goals} = props;
   const [makeRelocate] = useRelocateToTeamsInfo();
 
   const relocateToAnotherPage = () => {

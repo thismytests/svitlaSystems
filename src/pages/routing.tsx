@@ -3,12 +3,18 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect, Link
+  Link
 } from 'react-router-dom';
 
 // react material
-import {AppBar, Grid, IconButton, Typography} from '@material-ui/core';
+import {
+  AppBar,
+  Grid,
+  Typography
+} from '@material-ui/core';
+
 import Toolbar from '@material-ui/core/Toolbar';
+
 // routes
 import {routes} from './config';
 
@@ -57,7 +63,7 @@ export default () => {
             <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
 
             <Route exact path='/' component={Teams}/>
-            <Route path="*" component={NotFoundPage} />
+            <Route path="*" component={NotFoundPage}/>
 
             {/*<Redirect to={routes.teams.url}/>*/}
           </Switch>
