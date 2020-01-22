@@ -1,20 +1,22 @@
 import React from 'react';
 
 // react material
-import {Card, Grid} from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import {
+  Grid,
+  TableCell,
+  TableRow
+} from '@material-ui/core';
 
 // routing
 import {useRelocateToPlayerStatistics} from '../../../../hooks';
 
-
 // types
 import {PlayersInfoProps} from '../types';
 
+// styles
 import {useStyles} from '../styles';
 
 export default function PlayerInfo(props: PlayersInfoProps) {
-  // styles
   const classes = useStyles();
 
   const {
@@ -38,32 +40,15 @@ export default function PlayerInfo(props: PlayersInfoProps) {
   };
 
   return (
-    <Card className={classes.root}>
-      <Grid item container onClick={relocateToAnotherPage}>
-        <Grid item container onClick={relocateToAnotherPage}>
-          <Grid item xs={2}>
-            <Typography color="textSecondary">{name}</Typography>
-          </Grid>
-
-          <Grid item xs={2}>
-            <Typography color="textSecondary">{age}</Typography>
-          </Grid>
-
-          <Grid item xs={2}>
-            <Typography color="textSecondary">{position}</Typography>
-          </Grid>
-
-
-          <Grid item xs={2}>
-            <Typography color="textSecondary">{value}</Typography>
-          </Grid>
-
-          <Grid item xs={2}>
-            {renderHistory()}
-          </Grid>
-
-        </Grid>
-      </Grid>
-    </Card>
+    <TableRow key={name} className={classes.root}
+              onClick={relocateToAnotherPage}>
+      <TableCell component="th" scope="row">
+        {name}
+      </TableCell>
+      <TableCell align="right">{age}</TableCell>
+      <TableCell align="right">{position}</TableCell>
+      <TableCell align="right">{value}</TableCell>
+      <TableCell align="right"> {renderHistory()}</TableCell>
+    </TableRow>
   )
 }

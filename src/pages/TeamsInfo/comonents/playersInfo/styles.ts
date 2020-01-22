@@ -9,4 +9,7 @@ export const useStyles = makeStyles({
       cursor: 'pointer'
     }
   },
+  table: {
+    minWidth: 330,
+  },
 });
