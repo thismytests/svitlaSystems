@@ -6,10 +6,15 @@ const entryPoint = 'teams';
 
 
 const request = async (data?: {
-  team_id?: string
+  id?: string
 }): Promise<TeamsAPI | undefined> => {
   const headers = {};
-  const body = {};
+  let body: {
+    id?: string
+  } = {
+    id: data?.id
+  };
+
 
   const params: {
     [id: string]: any
@@ -46,6 +51,6 @@ export const getTeams = (): Promise<TeamsAPI | undefined> => {
   return request()
 };
 
-export const getTeam = (team_id: string): Promise<TeamsAPI | undefined> => {
-  return request({team_id})
+export const getTeamById = (id: string): Promise<TeamsAPI | undefined> => {
+  return request({id})
 };

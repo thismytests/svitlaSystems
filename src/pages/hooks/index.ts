@@ -14,19 +14,29 @@ export function useRelocateToGamesRoute() {
 export function useRelocateToPlayerStatistics(id: string) {
   const history = useHistory();
 
-  const makeRelocate = (id: string) => {
-    history.push(routes.playerStatistics.url + '/' + id);
+  const makeRelocate = () => {
+    history.push({
+      pathname: routes.playerStatistics.path + "/" + id,
+      state: {
+        id: id
+      }
+    });
   };
 
   return [makeRelocate];
 }
 
 
-export function useRelocateToTeamsInfo() {
+export function useRelocateToTeamsInfo(id: string) {
   const history = useHistory();
 
-  const makeRelocate = (id: string) => {
-    history.push(routes.teamsInfo.url + '/' + id);
+  const makeRelocate = () => {
+    history.push({
+      pathname: routes.teamsInfo.path + "/" + id,
+      state: {
+        id: id
+      }
+    });
   };
 
   return [makeRelocate];

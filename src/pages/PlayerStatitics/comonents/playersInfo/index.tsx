@@ -30,14 +30,16 @@ export default function PlayersInfo(props: PlayersInfoProps) {
   const classes = useStyles();
 
   const {
-    id,name, age,
+    id, name, age,
     position, history, value
   } = props;
 
-  const [makeRelocate] = useRelocateToTeamsInfo();
+
+  const [makeRelocate] = useRelocateToTeamsInfo(id);
 
   const relocateToAnotherPage = () => {
-    makeRelocate(id)
+    // todo ... Mykolai Lytvyn ... Will be discussed
+    makeRelocate()
   };
 
   const renderHistory = () => {

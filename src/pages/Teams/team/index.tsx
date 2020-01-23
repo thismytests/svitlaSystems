@@ -18,10 +18,11 @@ export default function Team(props: TeamProps) {
   const classes = useStyles();
 
   const {id, name, logo} = props;
-  const [makeRelocate] = useRelocateToTeamsInfo();
+  const [makeRelocate] = useRelocateToTeamsInfo(id);
 
   const relocateToAnotherPage = () => {
-    makeRelocate(id)
+    console.log('make relocate :', );
+    makeRelocate()
   };
 
   return (

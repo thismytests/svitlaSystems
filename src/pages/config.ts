@@ -1,20 +1,24 @@
 export interface RouteConfig {
   [id: string]: {
     url: string,
-    useId?: boolean
+    useId?: boolean,
+    path: string
   }
 }
 
 export const routes: RouteConfig = {
   teams: {
+    path: '/teams',
     url: '/teams'
   },
   playerStatistics: {
-    url: '/playerStatistics',
+    path: '/playerStatistics',
+    url: '/playerStatistics/:id',
     useId: true
   },
   teamsInfo: {
-    url: '/teamsInfo',
+    path: '/teamsInfo',
+    url: '/teamsInfo/:id',
     useId: true
   }
 };

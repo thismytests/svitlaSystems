@@ -20,6 +20,8 @@ import {locale} from './locale';
 // styles
 import {useStyles} from './styles';
 
+// routing
+
 export default function PlayersInfo(props: { data: Array<PlayersInfoProps> | undefined }) {
   const classes = useStyles();
 
@@ -43,7 +45,12 @@ export default function PlayersInfo(props: { data: Array<PlayersInfoProps> | und
           <TableBody>
             {props.data.map((item, i) =>
               (
-                <Item {...item}></Item>
+
+                  <TableRow key={i} className={classes.root} >
+
+                  <Item {...item}></Item>
+                  </TableRow>
+
               )
             )}
           </TableBody>

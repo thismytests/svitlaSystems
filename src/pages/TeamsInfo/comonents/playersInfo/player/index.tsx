@@ -27,7 +27,7 @@ export default function PlayerInfo(props: PlayersInfoProps) {
   const [makeRelocate] = useRelocateToPlayerStatistics(id);
 
   const relocateToAnotherPage = () => {
-    makeRelocate(id)
+    makeRelocate()
   };
 
   const renderHistory = () => {
@@ -40,15 +40,20 @@ export default function PlayerInfo(props: PlayersInfoProps) {
   };
 
   return (
-    <TableRow key={name} className={classes.root}
-              onClick={relocateToAnotherPage}>
-      <TableCell component="th" scope="row">
+    <>
+      <TableCell component="th" scope="row" onClick={relocateToAnotherPage}>
         {name}
       </TableCell>
-      <TableCell align="right">{age}</TableCell>
-      <TableCell align="right">{position}</TableCell>
-      <TableCell align="right">{value}</TableCell>
-      <TableCell align="right"> {renderHistory()}</TableCell>
-    </TableRow>
+      <TableCell align="right"
+                 onClick={relocateToAnotherPage}
+      >{age}</TableCell>
+      <TableCell align="right"
+                 onClick={relocateToAnotherPage}
+      >{position}</TableCell>
+      <TableCell align="right"
+                 onClick={relocateToAnotherPage}>{value}</TableCell>
+      <TableCell align="right"
+                 onClick={relocateToAnotherPage}> {renderHistory()}</TableCell>
+    </>
   )
 }

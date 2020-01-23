@@ -17,10 +17,10 @@ export default function GameInfo(props: GamesInfoProps) {
   const classes = useStyles();
 
   const {id, date, team_one_goals, team_two_goals} = props;
-  const [makeRelocate] = useRelocateToTeamsInfo();
+  const [makeRelocate] = useRelocateToTeamsInfo(id);
 
   const relocateToAnotherPage = () => {
-    makeRelocate(id)
+    makeRelocate()
   };
 
   const convertedDate = () => convertDate(date);

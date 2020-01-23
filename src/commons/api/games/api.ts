@@ -36,3 +36,7 @@ export const getGames = (): Promise<GamesAPI | undefined> => {
   return request()
 };
 
+export const getGame = (team_id: string): Promise<GamesAPI | undefined> => {
+  return request({team_id})
+};
+

@@ -63,7 +63,7 @@ export default () => {
             <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
 
             <Route exact path='/' component={Teams}/>
-            <Route path="*" component={NotFoundPage}/>
+            {/*<Route path="*" component={NotFoundPage}/>*/}
 
             {/*<Redirect to={routes.teams.url}/>*/}
           </Switch>

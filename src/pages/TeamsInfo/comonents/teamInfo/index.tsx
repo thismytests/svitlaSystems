@@ -22,10 +22,10 @@ export default function TeamInfo(props: TeamInfoProps) {
   const classes = useStyles();
 
   const {id, name, city, logo_url, founded, colour, budget} = props;
-  const [makeRelocate] = useRelocateToTeamsInfo();
+  const [makeRelocate] = useRelocateToTeamsInfo(id);
 
   const relocateToAnotherPage = () => {
-    makeRelocate(id)
+    makeRelocate()
   };
 
   return (

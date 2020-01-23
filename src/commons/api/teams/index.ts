@@ -1,1 +1,1 @@
-export {getTeams, getTeam} from './api';
+export {getTeams, getTeamById} from './api';

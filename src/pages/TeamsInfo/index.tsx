@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {RouteComponentProps} from 'react-router';
 
 // request
-import {getTeams as getTeamsApi} from '../../commons/api/teams';
+import {getTeamById as getTeamsApi} from '../../commons/api/teams';
 import {getGames as getGamesApi} from '../../commons/api/games';
 import {getPlayers as getPlayersApi} from '../../commons/api/players';
 
@@ -31,8 +31,8 @@ export default function Teams(props: RouteComponentProps) {
   const [players, setPlayers] = useState<PlayersAPI>();
   const [game, setGames] = useState<GamesAPI>();
 
-  const getData = async () => {
-    const teamsResult = await getTeamsApi();
+  const getData = async (id: string) => {
+    const teamsResult = await getTeamsApi(id);
     setTeam(teamsResult);
 
     const gamesResult = await getGamesApi();
@@ -92,8 +92,11 @@ export default function Teams(props: RouteComponentProps) {
   };
 
   useEffect(() => {
-    getData();
-  }, [props.history.location]);
+    const params = props.match.params as {id: string} ;
+
+    console.log('props.match :',props.match.params );
+    getData(params.id);
+  }, []);
 
 
   return (
