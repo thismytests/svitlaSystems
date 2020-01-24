@@ -37,7 +37,7 @@ export default function Teams(props: RouteComponentProps) {
 
   useEffect(() => {
     getTeams();
-  }, [props.history.location]);
+  }, []);
 
 
   return (

@@ -3,12 +3,21 @@ import {GamesAPI} from "./types";
 
 const entryPoint = 'teams/games';
 
-const headers = {};
-const body = {};
+const headers = {
+  'Content-Type': 'application/json'
+};
+let body: {
+  team_one_id?: string
+} = {};
 
 const request = async (data?: {
-  team_id?: string
+  id?: string
 }): Promise<GamesAPI | undefined> => {
+
+  if (data?.id) {
+    body.team_one_id = data.id
+  }
+
   try {
     let response = await fetch(url + entryPoint, {
       headers,
@@ -36,7 +45,7 @@ export const getGames = (): Promise<GamesAPI | undefined> => {
   return request()
 };
 
-export const getGame = (team_id: string): Promise<GamesAPI | undefined> => {
-  return request({team_id})
+export const getGameByTeamId = (id: string): Promise<GamesAPI | undefined> => {
+  return request({id})
 };
 

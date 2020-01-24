@@ -1,27 +1,25 @@
 import {url} from '../constants';
 import {TeamsAPI} from "./types";
-import {stringify} from 'query-string';
 
 const entryPoint = 'teams';
 
+const headers = {
+  'Content-Type': 'application/json'
+};
+let body: {
+  id?: string
+} = {};
 
 const request = async (data?: {
-  id?: string
+  'id'?: string
 }): Promise<TeamsAPI | undefined> => {
-  const headers = {};
-  let body: {
-    id?: string
-  } = {
-    id: data?.id
-  };
+
+  if (data?.id) {
+    body.id = data.id
+  }
 
 
-  const params: {
-    [id: string]: any
-  } = {lat: 35.696233, long: 139.570431};
-
-
-  const requestUrl = url + entryPoint + '?' + stringify(params);
+  const requestUrl = url + entryPoint;
 
   try {
     let response = await fetch(requestUrl, {
@@ -32,6 +30,7 @@ const request = async (data?: {
 
     let json = await response.json();
 
+    console.log('json is', json);
     if (json.errorCode) {
       return Promise.reject(json as TeamsAPI);
     }

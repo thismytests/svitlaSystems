@@ -4,13 +4,20 @@ import {PlayersAPI} from './types';
 const entryPoint = 'teams/players';
 
 
-const headers = {};
-const body = {};
-
+const headers = {
+  'Content-Type': 'application/json'
+};
+let body: {
+  team_id?: string
+} = {};
 
 export const request = async (data?: {
-  team_id?: string
+  id?: string
 }): Promise<PlayersAPI | undefined> => {
+  if (data?.id) {
+    body.team_id = data.id
+  }
+
   try {
     let response = await fetch(url + entryPoint, {
       headers,
@@ -38,7 +45,7 @@ export const getPlayers = (): Promise<PlayersAPI | undefined> => {
   return request()
 };
 
-export const getPlayer = (team_id: string): Promise<PlayersAPI | undefined> => {
-  return request({team_id})
+export const getPlayerByTeamId = (id: string): Promise<PlayersAPI | undefined> => {
+  return request({id})
 };
 

@@ -3,8 +3,8 @@ import {RouteComponentProps} from 'react-router';
 
 // request
 import {getTeamById as getTeamsApi} from '../../commons/api/teams';
-import {getGames as getGamesApi} from '../../commons/api/games';
-import {getPlayers as getPlayersApi} from '../../commons/api/players';
+import {getGameByTeamId} from '../../commons/api/games';
+import {getPlayerByTeamId} from '../../commons/api/players';
 
 
 // components
@@ -35,18 +35,15 @@ export default function Teams(props: RouteComponentProps) {
     const teamsResult = await getTeamsApi(id);
     setTeam(teamsResult);
 
-    const gamesResult = await getGamesApi();
+    const gamesResult = await getGameByTeamId(id);
     setGames(gamesResult);
 
-    const playersResult = await getPlayersApi();
+    const playersResult = await getPlayerByTeamId(id);
     setPlayers(playersResult);
   };
 
   const createTeamTemplate = () => {
-    // todo... Nick Litvin... will be removed
-    const result = [team?.data[0]];
-
-    return result.map((item, i: number) => {
+    return team?.data?.map((item, i: number) => {
       const teamProps: TeamInfoProps = {
         id: item?.id || '',
 
