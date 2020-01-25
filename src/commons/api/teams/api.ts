@@ -6,20 +6,21 @@ const entryPoint = 'teams';
 const headers = {
   'Content-Type': 'application/json'
 };
-let body: {
-  id?: string
-} = {};
+
+const requestUrl = url + entryPoint;
 
 const request = async (data?: {
   'id'?: string
 }): Promise<TeamsAPI | undefined> => {
 
+  let body: {
+    id?: string
+  } = {};
+
+
   if (data?.id) {
     body.id = data.id
   }
-
-
-  const requestUrl = url + entryPoint;
 
   try {
     let response = await fetch(requestUrl, {
@@ -30,7 +31,6 @@ const request = async (data?: {
 
     let json = await response.json();
 
-    console.log('json is', json);
     if (json.errorCode) {
       return Promise.reject(json as TeamsAPI);
     }

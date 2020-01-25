@@ -2,6 +2,7 @@ import React from 'react' ;
 import {
   BrowserRouter as Router,
   Route,
+  Redirect,
   Switch,
   Link
 } from 'react-router-dom';
@@ -63,9 +64,7 @@ export default () => {
             <Route path={routes.teamsInfo.url} component={TeamsInfo}/>
 
             <Route exact path='/' component={Teams}/>
-            {/*<Route path="*" component={NotFoundPage}/>*/}
-
-            {/*<Redirect to={routes.teams.url}/>*/}
+            <Route path="*" component={NotFoundPage}/>
           </Switch>
         </Grid>
         <Grid item xs={2}></Grid>

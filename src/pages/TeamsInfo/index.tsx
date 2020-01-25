@@ -6,7 +6,6 @@ import {getTeamById as getTeamsApi} from '../../commons/api/teams';
 import {getGameByTeamId} from '../../commons/api/games';
 import {getPlayerByTeamId} from '../../commons/api/players';
 
-
 // components
 import TeamInfo, {TeamInfoProps} from './comonents/teamInfo';
 import PlayersInfo from './comonents/playersInfo';

@@ -7,13 +7,14 @@ const entryPoint = 'teams/players';
 const headers = {
   'Content-Type': 'application/json'
 };
-let body: {
-  team_id?: string
-} = {};
 
 export const request = async (data?: {
   id?: string
 }): Promise<PlayersAPI | undefined> => {
+  let body: {
+    team_id?: string
+  } = {};
+
   if (data?.id) {
     body.team_id = data.id
   }
