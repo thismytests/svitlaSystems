@@ -1,29 +1,14 @@
 import React from 'react';
+
+// material
 import {Card, Grid} from "@material-ui/core";
-
-// routing
-import {useRelocateToTeamsInfo} from '../../../hooks';
-
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from './styles';
 
-export interface PlayersInfoProps {
-  id: string,
-  team_id: string,
-  name: string,
-  age: number,
-  nationality: string,
-  flag_url: string,
-  position: string,
-  history: [
-    {
-      team_id?: string,
-      apps?: number,
-      goals?: number
-    }
-  ],
-  value: number
-}
+// types
+import {PlayersInfoProps} from './types';
+
+// styles
+import {useStyles} from './styles';
 
 export default function PlayersInfo(props: PlayersInfoProps) {
   // styles
@@ -33,14 +18,6 @@ export default function PlayersInfo(props: PlayersInfoProps) {
     id, name, age,
     position, history, value
   } = props;
-
-
-  const [makeRelocate] = useRelocateToTeamsInfo(id);
-
-  const relocateToAnotherPage = () => {
-    // todo ... Mykolai Lytvyn ... Will be discussed
-    makeRelocate()
-  };
 
   const renderHistory = () => {
     return history.map((item, i) => {
@@ -53,7 +30,7 @@ export default function PlayersInfo(props: PlayersInfoProps) {
 
   return (
     <Card className={classes.root}>
-      <Grid item container onClick={relocateToAnotherPage}>
+      <Grid item container>
         <Grid item xs={2}>
           <Typography color="textSecondary">{name}</Typography>
         </Grid>
@@ -62,14 +39,9 @@ export default function PlayersInfo(props: PlayersInfoProps) {
           <Typography color="textSecondary">{age}</Typography>
         </Grid>
 
-        {/*<Grid item xs={2}>*/}
-        {/*  <Typography color="textSecondary">{flag_url}</Typography>*/}
-        {/*</Grid>*/}
-
         <Grid item xs={2}>
           <Typography color="textSecondary">{position}</Typography>
         </Grid>
-
 
         <Grid item xs={2}>
           <Typography color="textSecondary">{value}</Typography>

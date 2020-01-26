@@ -1,24 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {RouteComponentProps} from 'react-router';
 
+// api
 import {getPlayers as getPlayersApi} from '../../commons/api/players';
 
+// material
+import {Grid} from '@material-ui/core';
 
 // components
-import PlayersInfo, {PlayersInfoProps} from './comonents/playersInfo';
+import PlayersInfo from './comonents/playersInfo';
 
 // types
 import {PlayersAPI} from '../../commons/api/players/types';
-
-// styles
-import {Grid} from '@material-ui/core';
-
-// styles
-import {useStyles} from './styles';
+import {PlayersInfoProps} from './comonents/playersInfo/types';
 
 export default function Teams(props: RouteComponentProps) {
-  const classes = useStyles();
-
   const [players, setPlayers] = useState<PlayersAPI>();
 
   const getData = async () => {
@@ -57,7 +53,7 @@ export default function Teams(props: RouteComponentProps) {
 
   return (
     <Grid container item xs={12}>
-      <Grid item container lg={6} sm={12} className={classes.item}>
+      <Grid item container lg={12} sm={12}>
         {createPlayersTemplate()}
       </Grid>
     </Grid>
