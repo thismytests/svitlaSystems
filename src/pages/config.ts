@@ -7,6 +7,11 @@ export interface RouteConfig {
 }
 
 export const routes: RouteConfig = {
+  notFoundPage: {
+    path: '/404',
+    url: '/404'
+  },
+
   teams: {
     path: '/teams',
     url: '/teams'

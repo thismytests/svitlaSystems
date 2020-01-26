@@ -1,6 +1,16 @@
 import {useHistory} from 'react-router-dom';
 import {routes} from '../config';
 
+export function useRelocateNotFoundPage() {
+  const history = useHistory();
+
+  const makeRelocate = () => {
+    history.push(routes.notFoundPage.url);
+  };
+
+  return [makeRelocate];
+}
+
 export function useRelocateToGamesRoute() {
   const history = useHistory();
 
@@ -8,7 +18,7 @@ export function useRelocateToGamesRoute() {
     history.push(routes.teams.url);
   };
 
-  return [makeRelocate()];
+  return [makeRelocate];
 }
 
 export function useRelocateToPlayerStatistics(id: string) {

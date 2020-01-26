@@ -1,5 +1,8 @@
 import {url} from '../constants';
+
+// types
 import {PlayersAPI} from './types';
+import {ApiError} from '../types';
 
 const entryPoint = 'teams/players';
 
@@ -10,7 +13,7 @@ const headers = {
 
 export const request = async (data?: {
   id?: string
-}): Promise<PlayersAPI | undefined> => {
+}): Promise<PlayersAPI | ApiError | any> => {
   let body: {
     team_id?: string
   } = {};
@@ -28,8 +31,13 @@ export const request = async (data?: {
 
     let json = await response.json();
 
-    if (json.errorCode) {
-      return Promise.reject(json as PlayersAPI);
+    if (json.error) {
+      const err: ApiError = {
+        url: response.url,
+        errorText: json.error
+      };
+
+      return Promise.reject(err);
     }
 
     if (response.ok) {
@@ -37,7 +45,7 @@ export const request = async (data?: {
     }
 
   } catch (err) {
-    console.log('err :', err);
+    console.error('err :', err);
     return Promise.reject(err)
   }
 };

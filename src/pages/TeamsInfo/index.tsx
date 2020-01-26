@@ -19,6 +19,9 @@ import {GamesAPI} from '../../commons/api/games/types';
 // material
 import {Grid} from '@material-ui/core';
 
+// routing
+import {useRelocateNotFoundPage} from '../hooks';
+
 // styles
 import {useStyles} from './styles';
 
@@ -26,19 +29,27 @@ import {useStyles} from './styles';
 export default function Teams(props: RouteComponentProps) {
   const classes = useStyles();
 
+  const [makeRelocate] = useRelocateNotFoundPage();
+
   const [team, setTeam] = useState<TeamsAPI>();
   const [players, setPlayers] = useState<PlayersAPI>();
   const [game, setGames] = useState<GamesAPI>();
 
   const getData = async (id: string) => {
-    const teamsResult = await getTeamsApi(id);
-    setTeam(teamsResult);
+    try {
+      const teamsResult = await getTeamsApi(id);
+      setTeam(teamsResult);
 
-    const gamesResult = await getGameByTeamId(id);
-    setGames(gamesResult);
+      const gamesResult = await getGameByTeamId(id);
+      setGames(gamesResult);
 
-    const playersResult = await getPlayerByTeamId(id);
-    setPlayers(playersResult);
+      const playersResult = await getPlayerByTeamId(id);
+      setPlayers(playersResult);
+    }catch (e) {
+      console.log('err component', e);
+      makeRelocate()
+    }
+
   };
 
   const createTeamTemplate = () => {
