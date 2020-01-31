@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {RouteComponentProps} from 'react-router';
 
 // api
-import {getPlayers as getPlayersApi} from '../../commons/api/players';
+import {getPlayerByTeamId as getPlayersApi} from '../../commons/api/players';
 
 // material
 import {Grid} from '@material-ui/core';
@@ -12,13 +12,14 @@ import PlayersInfo from './comonents/playersInfo';
 
 // types
 import {PlayersAPI} from '../../commons/api/players/types';
-import {PlayersInfoProps} from './comonents/playersInfo/types';
+import {PlayersInfoProps} from '../TeamsInfo/comonents/playersInfo/types';
 
 export default function Teams(props: RouteComponentProps) {
   const [players, setPlayers] = useState<PlayersAPI>();
 
   const getData = async () => {
-    const playersResult = await getPlayersApi();
+    const params = props.match.params as { id: string };
+    const playersResult = await getPlayersApi(params.id);
     setPlayers(playersResult);
   };
 

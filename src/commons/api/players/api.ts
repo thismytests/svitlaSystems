@@ -55,6 +55,7 @@ export const getPlayers = (): Promise<PlayersAPI | undefined> => {
 };
 
 export const getPlayerByTeamId = (id: string): Promise<PlayersAPI | undefined> => {
+
   return request({id})
 };
 

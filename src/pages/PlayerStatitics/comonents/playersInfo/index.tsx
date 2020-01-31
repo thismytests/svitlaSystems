@@ -4,11 +4,10 @@ import React from 'react';
 import {Card, Grid} from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 
-// types
-import {PlayersInfoProps} from './types';
 
 // styles
 import {useStyles} from './styles';
+import {PlayersInfoProps} from "../../../TeamsInfo/comonents/playersInfo/types";
 
 export default function PlayersInfo(props: PlayersInfoProps) {
   // styles
