@@ -39,7 +39,7 @@ export default function PlayersInfo(props: { data: Array<PlayersInfoProps> | und
               <TableCell align="right">{locale.AGE}</TableCell>
               <TableCell align="right">{locale.POSITION}</TableCell>
               <TableCell align="right">{locale.VALUE}</TableCell>
-              <TableCell align="right">{locale.HISTORY}</TableCell>
+              <TableCell align="right">{locale.TOTAL_GOALS}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

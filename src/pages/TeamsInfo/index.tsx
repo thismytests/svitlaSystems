@@ -17,10 +17,13 @@ import {PlayersAPI} from '../../commons/api/players/types';
 import {GamesAPI} from '../../commons/api/games/types';
 
 // material
-import {Grid} from '@material-ui/core';
+import {Grid, Typography} from '@material-ui/core';
 
 // routing
 import {useRelocateNotFoundPage} from '../hooks';
+
+// locales
+import {locale} from './locale';
 
 // styles
 import {useStyles} from './styles';
@@ -45,7 +48,7 @@ export default function Teams(props: RouteComponentProps) {
 
       const playersResult = await getPlayerByTeamId(id);
       setPlayers(playersResult);
-    }catch (e) {
+    } catch (e) {
       console.log('err component', e);
       makeRelocate()
     }
@@ -99,27 +102,38 @@ export default function Teams(props: RouteComponentProps) {
   };
 
   useEffect(() => {
-    const params = props.match.params as {id: string} ;
-
-    console.log('props.match :',props.match.params );
+    const params = props.match.params as { id: string };
     getData(params.id);
   }, []);
 
 
   return (
     <Grid container item xs={12}>
+      {/*game*/}
       <Grid item container xs={12} className={classes.item}>
-        {createTeamTemplate()}
+        <Grid item xs={12}>
+          {createTeamTemplate()}
+        </Grid>
       </Grid>
 
-
+      {/*players*/}
       <Grid container item xs={12} alignItems={'flex-start'}>
-        <Grid item container lg={6} sm={12} className={classes.item}>
-          {createPlayersTemplate()}
-        </Grid>
+        {
+          players && (
+            <Grid item container lg={6} sm={12} className={classes.item}>
+              <Grid item xs={12}>{locale.PLAYERS}</Grid>
+              <Grid item xs={12}>
+                {createPlayersTemplate()}
+              </Grid>
+            </Grid>
+          )
+        }
 
+
+        {/*goals*/}
         <Grid item container lg={6} sm={12} className={classes.item}>
-          {createGameTemplate()}
+          <Grid item xs={12}>{locale.GAMES}</Grid>
+          <Grid item xs={12}>{createGameTemplate()}</Grid>
         </Grid>
       </Grid>
 

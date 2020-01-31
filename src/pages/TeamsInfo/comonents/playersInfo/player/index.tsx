@@ -30,13 +30,10 @@ export default function PlayerInfo(props: PlayersInfoProps) {
     makeRelocate()
   };
 
-  const renderHistory = () => {
-    return history.map((item, i) => {
-      return <Grid item container xs={12} key={i}>
-        <Grid item xs={6}>{item.apps}</Grid>
-        <Grid item xs={6}>{item.goals}</Grid>
-      </Grid>
-    })
+  const totalGoalsInAllTeams = () => {
+    return history.reduce((sum, current, i) => {
+      return sum + current.goals;
+    }, 0);
   };
 
   return (
@@ -53,7 +50,7 @@ export default function PlayerInfo(props: PlayersInfoProps) {
       <TableCell align="right"
                  onClick={relocateToAnotherPage}>{value}</TableCell>
       <TableCell align="right"
-                 onClick={relocateToAnotherPage}> {renderHistory()}</TableCell>
+                 onClick={relocateToAnotherPage}> {totalGoalsInAllTeams()}</TableCell>
     </>
   )
 }

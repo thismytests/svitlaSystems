@@ -3,5 +3,5 @@ export const locale = {
   AGE: 'AGE',
   POSITION: 'Position',
   VALUE: 'Value',
-  HISTORY: 'History'
+  TOTAL_GOALS: 'Total goals'
 }
